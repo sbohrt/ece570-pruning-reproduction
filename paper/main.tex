@@ -39,7 +39,7 @@ Specifically, we compare \emph{one-shot} global magnitude pruning against
 to 95\%.
 Our results confirm the original trend with striking clarity: accuracy remains
 near-baseline under both methods up to ${\sim}$70\% sparsity, but one-shot pruning
-collapses sharply beyond 80\%---reaching only 56.67\% at 95\% sparsity---while iterative
+collapses sharply beyond 80\%, reaching only 56.67\% at 95\% sparsity, while iterative
 pruning retains 96.51\%, a 39.8 percentage-point gap that validates fine-tuning as the
 critical recovery mechanism.
 We additionally find that naive layer-wise one-shot pruning performs catastrophically
@@ -53,7 +53,7 @@ Code is available at \url{https://github.com/sbohrt/ece570-pruning-reproduction}
 Modern deep learning architectures routinely contain tens to hundreds of millions of
 parameters, the majority of which are not necessary for inference-time performance
 \citep{lecun1989optimal, han2015learning}.
-Identifying and removing redundant weights---a process known as \emph{pruning}---is one
+Identifying and removing redundant weights, a process known as \emph{pruning}, is one
 of the most widely studied model compression techniques, with applications in deploying
 neural networks on resource-constrained hardware such as edge devices and mobile
 processors.
@@ -63,7 +63,7 @@ convolutional networks can be compressed by 9--13$\times$ with no loss in top-5 
 on ImageNet by (1) pruning weights below a magnitude threshold and (2) retraining the
 sparse network.
 A critical but sometimes overlooked implementation detail is the distinction between
-\emph{one-shot} pruning---applying the full target sparsity in a single step---and
+\emph{one-shot} pruning, applying the full target sparsity in a single step, and
 \emph{iterative} pruning, where the sparsity budget is gradually increased with fine-tuning
 between rounds.
 
@@ -183,16 +183,16 @@ can be removed without meaningful performance degradation.
 
 \textbf{High sparsity (80--90\%).}
 The methods diverge dramatically.
-One-shot pruning degrades from 95.21\% at 80\% to 80.43\% at 90\%---a sharp 14.78 pp
-drop in a single step---while iterative pruning remains nearly flat at 98.19\% and 97.85\%
+One-shot pruning degrades from 95.21\% at 80\% to 80.43\% at 90\%, a sharp 14.78 pp
+drop in a single step, while iterative pruning remains nearly flat at 98.19\% and 97.85\%
 respectively.
 The 17.42 pp gap at 90\% confirms that the fine-tuning recovery mechanism is not merely
 helpful but essential at this compression regime.
 
 \textbf{Extreme sparsity (95\%).}
 The divergence widens catastrophically.
-One-shot pruning collapses to 56.67\%---only marginally above a random classifier for
-a 10-class problem---while iterative pruning retains 96.51\%, a 39.84 pp gap.
+One-shot pruning collapses to 56.67\%, only marginally above a random classifier for
+a 10-class problem, while iterative pruning retains 96.51\%, a 39.84 pp gap.
 This result, which substantially extends the findings from our preliminary experiments,
 demonstrates that one-shot pruning at extreme sparsity effectively destroys the network's
 learned representations, whereas the iterative approach gradually restructures the
@@ -236,8 +236,8 @@ $100 \to 10$, 1{,}000 parameters) retains the most weights.
 This differential compressibility arises naturally from global magnitude pruning:
 the large first layer contains the most parameters and a correspondingly wide range of
 weight magnitudes, so a global threshold removes proportionally more of its weights.
-The small output layer, by contrast, cannot afford high sparsity---it directly determines
-class scores from only 1{,}000 weights---and its weights are concentrated at higher
+The small output layer, by contrast, cannot afford high sparsity, as it directly determines
+class scores from only 1{,}000 weights, and its weights are concentrated at higher
 magnitudes as a result of training pressure on the final classification decision.
 
 \subsection{Global vs.\ Layer-Wise Pruning}
@@ -300,7 +300,7 @@ Python script runnable on a consumer laptop in under 15 minutes.
 The extended sparsity sweep to 95\% and the layer-wise failure mode analysis provide
 concrete insights not present in the original paper's small-scale experiments, and
 the gradient-masking fine-tuning implementation correctly prevents optimizer momentum
-from reactivating pruned weights---a common pitfall in reproduction efforts.
+from reactivating pruned weights, a common pitfall in reproduction efforts.
 
 \bibliographystyle{iclr2026_conference}
 \bibliography{references}
