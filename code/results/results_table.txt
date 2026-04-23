@@ -1,0 +1,14 @@
+Sparsity | One-Shot Acc | Iterative Acc
+--------------------------------------------
+  0%    |    98.36%    |    98.36%
+  30%    |    98.23%    |    98.03%
+  50%    |    98.13%    |    98.17%
+  70%    |    97.29%    |    98.31%
+  80%    |    95.21%    |    98.19%
+  90%    |    80.43%    |    97.85%
+  95%    |    56.67%    |    96.51%
+
+Layerwise comparison at 90% sparsity:
+  global      : acc=80.43%  global_sparsity=90.0%
+  layerwise   : acc=42.88%  global_sparsity=90.0%
+  iterative   : acc=97.85%  global_sparsity=90.0%
