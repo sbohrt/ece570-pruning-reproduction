@@ -8,6 +8,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{microtype}
+\usepackage{float}
 
 \title{Tiny Reproduction: Validating Magnitude-Based Neural Network Pruning\\
 \large A Small-Scale Study of One-Shot vs.\ Iterative Pruning on MNIST}
@@ -219,7 +220,7 @@ remaining weights to compensate for each pruning step.
 
 \subsection{Layer Compressibility Analysis}
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering
   \includegraphics[width=0.78\linewidth]{layer_sparsity_heatmap.pdf}
   \caption{Per-layer sparsity achieved by iterative pruning targeting 90\% global
